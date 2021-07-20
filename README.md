@@ -1,0 +1,1 @@
+# wb7-aplicativos-magento
