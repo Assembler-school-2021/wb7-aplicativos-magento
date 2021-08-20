@@ -117,6 +117,8 @@ server {
   }
 
   location ~ \.php(?:$|/) {
+    allow 95.127.182.17;
+    deny all;
     fastcgi_split_path_info ^(.+\.php)(/.+)$;
     include fastcgi_params;
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
@@ -131,6 +133,8 @@ server {
 }
 ```
 
+Para permitir conexiones desde una IP específica tenemos que añadir a la config de nginx la orden `allow <nuestra_ip>; deny all;`.
+
 > Pregunta 7 : Nuestro programador prefiere un editor más rústico tipo markdown. Busca una forma de cambiar el editor por defecto y que use markdown como sintáxis.
 
 1. Within your BookStack instance, find and click on Settings in the navbar.
@@ -140,4 +144,14 @@ server {
 
 > Pregunta 8 : Prueba de crear alguna shelve, book y page y subir alguna imagen de por lo menos 6mb. Te puedes ayudar con alguna cheatsheet de markdown.
 
+Hemos creado una página en un libro dentro de un estante. Mediante markdown hemos copiado una imagen y pegado directamente en el editor. Dependiendo de los parámetros que tengamos configurados en php es posible que tengamos un error al pegar imágenes grandes y por lo tanto tendremos que configurar los parámetros adecuadamente:
+![image](https://user-images.githubusercontent.com/65896169/130271191-197c881b-ef66-45bf-902c-65ef6fababb9.png)
+
+Por ejemplo estos valores en */etc/php.ini*:
+```
+post_max_size = 10M
+upload_max_filesize = 10M
+```
+
 > Pregunta 9 : Permísos. Crea una shelve a parte solo para usuarios. A continuación crea alguna página. Crea un usuario que solo pueda visualizar el shelve creado en esta pregunta y que no pueda editar ningún libro.
+
