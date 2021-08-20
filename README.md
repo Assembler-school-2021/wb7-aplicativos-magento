@@ -151,7 +151,17 @@ Por ejemplo estos valores en */etc/php.ini*:
 ```
 post_max_size = 10M
 upload_max_filesize = 10M
+memory_limit = 256M
 ```
 
 > Pregunta 9 : Permísos. Crea una shelve a parte solo para usuarios. A continuación crea alguna página. Crea un usuario que solo pueda visualizar el shelve creado en esta pregunta y que no pueda editar ningún libro.
+
+Creamos el usuario lector:
+![image](https://user-images.githubusercontent.com/65896169/130273067-1c59209d-a0cd-4a98-b026-24b699d36e08.png)
+
+Creamos el estante y le configuramos permisos solo para usuarios:
+![image](https://user-images.githubusercontent.com/65896169/130273341-7e137749-a2d6-4126-bf4c-7c24ee7b5780.png)
+
+Y creamos una página que solo puedan ver los usuarios:
+![image](https://user-images.githubusercontent.com/65896169/130273592-f371577e-57cd-455b-a2b1-ac08dd6afb5d.png)
 
